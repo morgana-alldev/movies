@@ -51,6 +51,10 @@
         </header>
 
         @yield('content')
+
+        <footer>
+            <p style='text-align:center; padding-top:15px; font-size:12px;'>Made with love @ 2021 by Anina</p>
+        </footer>
     </div>
 </body>
 </html>

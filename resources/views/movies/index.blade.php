@@ -7,9 +7,8 @@
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
             <h1 class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 sm:py-6 sm:px-8 sm:rounded-t-md text-center">
-                Movies
-            </h1>
-          
+                Movies - Laravel test
+            </h1>          
 
             <div class="container">
                 <div class="row">     

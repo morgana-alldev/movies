@@ -101,7 +101,28 @@ class MoviesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+                'image'=>'required|mimes:jpg,png,jpeg|max:5048',
+                'name'=>'required',
+                'rating'=>'required|min:1|max:10',
+                'status'=> 'required|integer|min:1|max:2',
+                'description'=>'required'
+            ]);
+
+        $newImgName = time().'-'. str_replace(' ', '_', $request->name) .'.'. $request->file('image')->extension();
+
+        $request->file('image')->move(public_path('movies-images'), $newImgName);
+
+        $movie = Movies::where('id', $id)
+            ->update([
+            'name'=>$request->input('name'),
+            'description'=>$request->input('description'),
+            'status'=>$request->input('status'),
+            'rating'=>$request->input('rating'),
+            'image'=>$newImgName
+         ]);  
+         
+         return redirect('/movies'); 
     }
 
     /**
